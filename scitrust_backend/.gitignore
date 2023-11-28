@@ -108,3 +108,5 @@ dist
 prisma/dev.db
 
 .env
+
+postgres-data
