@@ -106,3 +106,5 @@ dist
 
 # Prisma migrations
 prisma/dev.db
+
+.env
