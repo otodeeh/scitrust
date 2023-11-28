@@ -1,0 +1,53 @@
+/* Remove a margem e o preenchimento padrão de todos os elementos */
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 100%;
+}
+
+/* Redefine a fonte para um valor padrão */
+body {
+    list-style-type: none;
+    background-color: #f1f1f1;
+}
+
+/* Redefine a lista para não ter marcadores ou preenchimento ul, */
+ol {
+    list-style: none;
+    padding: 0;
+}
+
+/* Redefine a aparência de links para remover o sublinhado e a cor padrão */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: 0px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f8f9fa;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: #9ac74ecc;
+    border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #d0dff0;
+}

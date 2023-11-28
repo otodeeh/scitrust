@@ -1,0 +1,15 @@
+.scientific-journals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100dvh;
+  align-items: center;
+}
+
+
+@media screen and (max-width: 480px) {
+  .scientific-journals-list {
+    height: calc(100% - 120px);
+  }
+
+}

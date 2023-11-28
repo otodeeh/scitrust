@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  sci-postgres:
+    image: postgres:latest
+    container_name: sci-postgres
+    environment:
+      POSTGRES_DB: sci
+      POSTGRES_PASSWORD: scipassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data

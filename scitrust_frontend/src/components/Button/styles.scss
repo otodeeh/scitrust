@@ -1,0 +1,25 @@
+.button-component {
+  display: flex;
+  button {
+    padding: 0 5px;
+    background-color: #9AC74ECC;
+    
+    border-radius: .5em;
+    &:hover {
+      background-color: #D3E4B0CC;
+    }
+  }
+
+  .sm {
+    height: 1.5rem;
+  }
+
+  .md {
+    height: 2rem;
+  }
+
+  .lg {
+    height: 2.5rem;
+  }
+
+}

@@ -1,0 +1,60 @@
+.scientific-journal {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  min-width: 335px;
+  border-radius: .5rem;
+  padding: 12px;
+  flex-direction: column;
+  background-color: #d9e6bd;
+  position: relative;
+  gap: 12px;
+
+  .content-information {
+    div {
+      color: #333
+    }
+
+    p {
+      font-size: 13px;
+    }
+  }
+
+  .content-actions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    gap: 10px;
+    bottom: 0px;
+    .interaction {
+      display: flex;
+      border-top: solid 1px #33333385;
+      border-bottom: solid 1px #33333385;
+      justify-content: center;
+      align-items: center;
+      height: 30px;
+      gap: 20px;
+      p {
+        display: flex;
+        justify-content: center;
+        width: 100px;
+        color: #333333;
+        font-size: 13px;
+        height: 20px;
+        cursor: pointer;
+        &:hover {
+          border-radius: .5rem;
+          background-color: #f2f2f285;
+          color: #333;
+        }
+      }
+    }
+
+    .comments {
+      width: 100%;
+    }
+  }
+
+
+}

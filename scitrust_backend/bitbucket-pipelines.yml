@@ -1,0 +1,25 @@
+image: node:16
+
+pipelines:
+  custom:
+    homolog:
+      - step:
+          name: Install, Build dist folder and Docker image and deploy container to AWS
+          size: 2x
+          script:
+            - npm install
+            - npm run build
+            - docker build -f dockerfile -t $ECR_REPOSITORY .
+            - pipe: 'atlassian/aws-ecr-push-image:1.1.0'
+              variables:
+                AWS_ACCESS_KEY_ID: $ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: $DEFAULT_REGION
+                IMAGE_NAME: $ECR_REPOSITORY
+            - pipe: 'atlassian/ssh-run:0.2.4'
+              variables:
+                SSH_USER: ec2-user
+                SERVER: $SERVER_IP
+                SSH_KEY: $SSH_KEY
+                MODE: script
+                COMMAND: deploy.sh

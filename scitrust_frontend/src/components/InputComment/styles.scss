@@ -1,0 +1,26 @@
+.input-comment {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid #33333385;
+  height: 36px;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+
+  textarea {
+    margin: auto;
+    border: none;
+    width: 100%;
+    background-color: transparent;
+    outline: none;
+    font-size: 13px;
+    resize: none; /* Evita que o usuário redimensione manualmente a área de texto */
+  }
+
+  .expanding-textarea {
+  overflow-y: hidden; /* Oculta a barra de rolagem vertical */
+  min-height: 36px; /* Altura mínima da área de texto */
+  /* Adiciona um espaço extra para a área de texto se expandir sem rolar */
+  }
+}
