@@ -11,20 +11,20 @@ import {
   HttpResponse,
   Validation,
 } from "presentation/protocols";
-import { AddComment } from "src/domain/usecases/periodicals/add-comment";
+import { AddRating } from "src/domain/usecases/periodicals/add-rating";
 
-export class AddCommentController implements Controller {
+export class AddRatingController implements Controller {
   constructor(
     private readonly validation: Validation,
     private readonly loadAccountByToken: LoadAccountByToken,
-    private readonly addComment: AddComment,
+    private readonly addRating: AddRating,
   ) { }
-  async handle(httpRequest: HttpRequest<Omit<AddComment.Params, "userId" | "periodicalId">, Pick<AddComment.Params, "periodicalId">, any>): Promise<HttpResponse> {
+  async handle(httpRequest: HttpRequest<Omit<AddRating.Params, "userId" | "periodicalId">, Pick<AddRating.Params, "periodicalId">, any>): Promise<HttpResponse> {
     try {
-      const { text } = httpRequest.body;
+      const { value } = httpRequest.body;
       const { periodicalId } = httpRequest.params;
 
-      const error = this.validation.validate({ text, periodicalId: Number(periodicalId) });
+      const error = this.validation.validate({ value, periodicalId: Number(periodicalId) });
       if (error) {
         return badRequest(error);
       }
@@ -36,7 +36,7 @@ export class AddCommentController implements Controller {
         return unauthorized();
       }
 
-      const technicalSupports = await this.addComment.addComment({ userId: user.id, text, periodicalId: Number(periodicalId) });
+      const technicalSupports = await this.addRating.addRating({ userId: user.id, value, periodicalId: Number(periodicalId) });
 
       return ok(technicalSupports);
     } catch (error) {

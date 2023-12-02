@@ -1,5 +1,4 @@
 export * from "./accounts";
-export * from "./api-protheus";
 export * from "./approvals";
 export * from "./clients";
 export * from "./countries";
@@ -10,7 +9,7 @@ export * from "./equipments";
 export * from "./files";
 export * from "./notifications";
 export * from "./parts";
+export * from "./periodicals";
 export * from "./sales-records";
 export * from "./technical-support";
 export * from "./timeline-events";
-

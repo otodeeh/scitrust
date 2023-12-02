@@ -14,28 +14,35 @@ model User {
   email     String     @unique
   password  String
   token     String?
-  posts     Post[]
-  comments  Comment[]
+  posts     Periodical[]
+  comments  Comments[]
   ratings   Rating[]
 }
 
-model Post {
+model Periodical {
   id        Int        @id @default(autoincrement())
   title     String
-  content   String
+  description   String
+  issn      String
+  stratum   String
+  classification   String?
+  publisher String?
+  url      String?
   userId    Int
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
   user      User       @relation(fields: [userId], references: [id])
-  comments  Comment[]
+  comments  Comments[]
   ratings   Rating[]
 }
 
-model Comment {
+model Comments {
   id        Int        @id @default(autoincrement())
   text      String
   userId    Int
-  postId    Int
+  periodicalId    Int
   user      User       @relation(fields: [userId], references: [id])
-  post      Post       @relation(fields: [postId], references: [id])
+  periodical    Periodical       @relation(fields: [periodicalId], references: [id])
   createdAt DateTime   @default(now())
 }
 
@@ -43,9 +50,9 @@ model Rating {
   id        Int        @id @default(autoincrement())
   value     Int
   userId    Int
-  postId    Int
+  periodicalId    Int
   user      User       @relation(fields: [userId], references: [id])
-  post      Post       @relation(fields: [postId], references: [id])
+  periodical    Periodical       @relation(fields: [periodicalId], references: [id])
   createdAt DateTime   @default(now())
 }
 

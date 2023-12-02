@@ -15,7 +15,6 @@ export class DbRecoverAccountPassword implements RecoverAccountPassword {
   ): Promise<RecoverAccountPassword.Return> {
     const account = await this.loadAccountByTokenRepository.loadByToken({
       token: params.token,
-      roles: ['system-role-admin'],
     });
     if (account) {
       let isValid = true

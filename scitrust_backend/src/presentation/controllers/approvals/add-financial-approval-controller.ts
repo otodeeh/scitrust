@@ -28,7 +28,7 @@ export class AddFinancialApprovalController implements Controller {
       }
       
       const xAccessToken = httpRequest.headers["x-access-token"]
-      const account = await this.loadAccountByToken.load({ token: xAccessToken, roles: ['system-role-admin'] });
+      const account = await this.loadAccountByToken.load({ token: xAccessToken });
 
       const technicalSupports = await this.addFinancialApproval.addFinancialApproval({ accountId: account.id, nature, observation, ptax, technicalSupportId: Number(technicalSupportId) });
 

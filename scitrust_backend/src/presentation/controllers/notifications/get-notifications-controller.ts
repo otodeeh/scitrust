@@ -18,7 +18,7 @@ export class GetNotificationsController implements Controller {
   async handle(httpRequest: HttpRequest<GetNotifications.Params, any, any>): Promise<HttpResponse> {
     try {
       const xAccessToken = httpRequest.headers["x-access-token"]
-      const account = await this.loadAccountByToken.load({ token: xAccessToken, roles: ['system-role-admin'] });
+      const account = await this.loadAccountByToken.load({ token: xAccessToken });
 
       const { limit = 10, offset = 0, term = '', status = '' } = httpRequest.query;
 

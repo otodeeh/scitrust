@@ -28,7 +28,7 @@ export class DbAuthentication implements Authentication {
           account.id,
           accessToken
         );
-        return { token: accessToken, contact: account.contact, id: account.id, email: account.email, language: account.language, phone: account.phone, role: account.role };
+        return { token: accessToken, name: account.name, id: account.id, email: account.email, language: account.language };
       }
     }
     return null;

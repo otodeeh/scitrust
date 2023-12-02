@@ -7,7 +7,7 @@ export class DbLoadAccountByToken implements LoadAccountByToken {
     private readonly loadAccountByTokenRepository: LoadAccountByTokenRepository
   ) { }
   async load(params: LoadAccountByToken.Params): Promise<LoadAccountByToken.Return> {
-    const { roles, token } = params
+    const {  token } = params
     let accessToken: string;
 
     try {
@@ -18,7 +18,6 @@ export class DbLoadAccountByToken implements LoadAccountByToken {
 
     if (token) {
       const account = await this.loadAccountByTokenRepository.loadByToken({
-        roles,
         token
       });
       if (account) {

@@ -3,5 +3,3 @@ export * from "./db-clean-sold-equipments-by-sale-record-id";
 export * from "./db-get-equipment-by-id";
 export * from "./db-get-equipments";
 export * from "./db-validate-sold-equipments-by-ids";
-export * from "./get-distributors-equipments-to-schedule-task";
-

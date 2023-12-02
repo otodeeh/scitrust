@@ -10,7 +10,7 @@ export class AuthMiddleware implements Middleware {
     try {
       const accessToken = httpRequest.headers?.["x-access-token"];
       if (accessToken) {
-        const account = await this.loadAccountByToken.load({token:accessToken, roles: this.roles});
+        const account = await this.loadAccountByToken.load({ token: accessToken });
         if (account) {
           return ok({ accountId: account.id });
         }

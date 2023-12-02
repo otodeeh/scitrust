@@ -6,5 +6,5 @@ export interface Authentication {
 
 export namespace Authentication {
   export type Params = { email: string, password: string };
-  export type Return = Omit<AccountModel, "accountRoleId" | "createdAt" | "deletedAt" | "deletedAt" | "distributorId" | "password" | "updatedAt" >
+  export type Return = Omit<AccountModel, "password">
 }

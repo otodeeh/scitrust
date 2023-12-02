@@ -5,6 +5,6 @@ export interface LoadAccountByToken {
 }
 
 export namespace LoadAccountByToken {
-  export type Params = { token: string, roles: string[] };
+  export type Params = { token: string };
   export type Return = AccountModel;
 }

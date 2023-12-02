@@ -28,7 +28,7 @@ export class AddTechnicalApprovalController implements Controller {
       }
 
       const xAccessToken = httpRequest.headers["x-access-token"]
-      const account = await this.loadAccountByToken.load({ token: xAccessToken, roles: ['system-role-admin'] });
+      const account = await this.loadAccountByToken.load({ token: xAccessToken });
 
       const technicalSupports = await this.addTechnicalApproval.addTechnicalApproval({ accountId: account.id, approvedParts, technicalSupportId: Number(technicalSupportId) });
 

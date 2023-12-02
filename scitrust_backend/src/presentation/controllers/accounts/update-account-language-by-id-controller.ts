@@ -27,11 +27,7 @@ export class UpdateAccountLanguageByIdController implements Controller {
       }
 
       const xAccessToken = httpRequest.headers["x-access-token"]
-      const account = await this.loadAccountByToken.load({ token: xAccessToken, roles: ['system-role-admin'] });
-
-      if (account?.role.split("_")[0] !== "digital" && (!account || account.id !== Number(id))) {
-        return unauthorized();
-      }
+      const account = await this.loadAccountByToken.load({ token: xAccessToken });
 
       const error = this.validation.validate(httpRequest.body)
       if (error) {
