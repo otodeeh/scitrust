@@ -7,7 +7,14 @@ async function main() {
     data: {
       name: "Andre",
       email: "deh.hgl@gmail.com",
-      password: "$2b$12$bGPCMQA99UCMGTjP4RVCF.uwLvnn.6b23AToOOshmiN7U/3UaLjMe",
+      password: "$2b$12$yizjTLJJdaLJPZntnMeHJOu4bWn8CFri4M6xmZLPV1pQ4SAKqteAu",
+    }
+  })
+  await prisma.user.create({
+    data: {
+      name: "Andre Henrique",
+      email: "andre.hgl@gmail.com",
+      password: "$2b$12$yizjTLJJdaLJPZntnMeHJOu4bWn8CFri4M6xmZLPV1pQ4SAKqteAu",
     }
   })
   await prisma.periodical.createMany({
