@@ -2,7 +2,6 @@
   display: flex;
   button {
     padding: 0 5px;
-    background-color: #9AC74ECC;
     
     border-radius: .5em;
     &:hover {
@@ -10,16 +9,28 @@
     }
   }
 
-  .sm {
-    height: 1.5rem;
-  }
+  
+}
 
-  .md {
-    height: 2rem;
-  }
+.confirm {
+  background-color: #9AC74ECC;
+  color: #333333;
+}
 
-  .lg {
-    height: 2.5rem;
-  }
+.cancel {
+  border: #c30000 1px solid;
+  background-color: transparent;
+  color: #c30000
+}
 
+.sm {
+  height: 1.5rem;
+}
+
+.md {
+  height: 2rem;
+}
+
+.lg {
+  height: 2.5rem;
 }

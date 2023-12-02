@@ -1,20 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import sci from '../../assets/sci.svg'
-import { InputNone } from '../Input/InputNone'
-import { InputRoot } from '../Input/InputRoot'
+import { AuthContext } from '../../context/AuthContext'
+import { Input } from '../Input'
 import './styles.scss'
 
 const NavBar = () => {
+	const { onLogout } = useContext(AuthContext)
+
 	return (
 		<>
 			<nav className="header-content-menu">
 				<div className="header-search-menu">
 					<img src={sci} alt="" style={{ height: '100%' }} />
-					<InputRoot>
-						<InputNone placeholder="Buscar ISSN ou nome" />
-					</InputRoot>
-					{/* <span>Perfil</span> */}
+					<Input placeholder="Buscar ISSN ou nome" />
 				</div>
 			</nav>
 			<nav className="header-content-menu">
@@ -22,8 +21,11 @@ const NavBar = () => {
 					<NavLink to="/home">
 						<span>Home</span>
 					</NavLink>
-					<NavLink to="/login">
+					<NavLink to="/perfil">
 						<span>Perfil</span>
+					</NavLink>
+					<NavLink to="/login" onClick={onLogout}>
+						<span>Sair</span>
 					</NavLink>
 				</div>
 			</nav>

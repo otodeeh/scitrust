@@ -1,0 +1,29 @@
+.modal-rating {
+  max-width: 310px;
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    .description {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+      p {
+        font-size: 13px;
+        font-weight: 600;
+        text-align: center;
+      }
+    }
+  }
+  .action {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    button {
+      width: 100px;
+    }
+  }
+}

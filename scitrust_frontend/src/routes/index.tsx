@@ -1,25 +1,50 @@
 import React from 'react'
 import { useRoutes } from 'react-router-dom'
 import { DefaultLayout } from '../components/DefaultLayout'
+import { ProtectedRoute } from '../components/ProtectedRoute'
+import { ScientificJournalsProvider } from '../context/ScientificJournalsContext'
 import { Authentication } from '../pages/Authentication'
+import { Perfil } from '../pages/Perfil'
 import { ScientificJournalsList } from '../pages/ScientificJournals'
 
 export default () =>
 	useRoutes([
 		{
 			path: '/',
-			element: <DefaultLayout></DefaultLayout>
+			element: (
+				<DefaultLayout>
+					<ProtectedRoute>
+						<></>
+					</ProtectedRoute>
+				</DefaultLayout>
+			)
 		},
 		{
 			path: '/home',
 			element: (
 				<DefaultLayout>
-					<ScientificJournalsList />
+					<ScientificJournalsProvider>
+						<ScientificJournalsList />
+					</ScientificJournalsProvider>
 				</DefaultLayout>
 			)
 		},
 		{
 			path: '/login',
-			element: <Authentication />
+			element: (
+				// <UnprotectedRoutes>
+				<Authentication />
+				// </UnprotectedRoutes>
+			)
+		},
+		{
+			path: '/perfil',
+			element: (
+				<DefaultLayout>
+					<ProtectedRoute>
+						<Perfil />
+					</ProtectedRoute>
+				</DefaultLayout>
+			)
 		}
 	])

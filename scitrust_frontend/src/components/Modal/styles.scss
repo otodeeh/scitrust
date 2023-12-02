@@ -1,0 +1,87 @@
+.modal-main-backdrop {
+	background: transparent;
+	background-repeat: repeat;
+	width: 100vw;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 50;
+	backdrop-filter: blur(5px);
+}
+
+.modal-component {
+	border-radius: 6px;
+	max-width: calc(100vw - 20px);
+	box-shadow: 0px 0px 6px #3333334d;
+	background-color: #f2f2f2;
+
+	.modal-header-content {
+		width: 100%;
+		height: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 6px 6px 0px 0px;
+		position: relative;
+		background-color: #9AC74ECC;
+		color: #333333;
+
+		span {
+			text-align: center;
+			font-size: 16px;
+			font-weight: 600;
+			letter-spacing: 0.24px;
+			text-transform: uppercase;
+		}
+
+		.modal-header-close-content {
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			border-radius: 20px;
+			right: 10px;
+			cursor: pointer;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			.MuiSvgIcon-root {
+				width: 16px;
+				height: 16px;
+			}
+		}
+	}
+
+	.modal-main-content {
+		width: 100%;
+		height: auto;
+		padding: 20px;
+		position: relative;
+	}
+}
+
+.modal-mobile-component {
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+	z-index: 15;
+
+	.modal-mobile-main-content {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: calc(100% - 40px);
+		padding: 20px;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.modal-main-backdrop {
+		height: calc(100% - 70px);
+	}
+}

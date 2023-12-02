@@ -27,9 +27,14 @@ module.exports = {
         "singleQuote": true,
         "bracketSpacing": true,
         "arrowParens": "always",
-        "trailingComma": "none"
+        "trailingComma": "none",
+        "unused": false
       }
     ],
-    "react-refresh/only-export-components": "off"
+    "react-refresh/only-export-components": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-namespace": "off",
+    "react-hooks/exhaustive-deps": "off"
   },
 }

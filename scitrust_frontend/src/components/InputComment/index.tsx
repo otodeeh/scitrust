@@ -1,9 +1,11 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import './styles.scss'
 
-interface Props extends React.ComponentPropsWithRef<'textarea'> {}
+interface Props extends React.ComponentPropsWithRef<'textarea'> {
+	onSubmit: (value: any) => void
+}
 
-export const InputComment = ({ ...rest }: Props) => {
+export const InputComment = ({ onSubmit, ...rest }: Props) => {
 	const [text, setText] = useState<string>('')
 
 	const handleTextChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
@@ -13,7 +15,7 @@ export const InputComment = ({ ...rest }: Props) => {
 	const handleKeyPress = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
 		if (event.key === 'Enter' && !event.shiftKey) {
 			event.preventDefault()
-			console.log('Message sent:', text)
+			onSubmit(text)
 			setText('')
 		}
 	}
@@ -26,10 +28,10 @@ export const InputComment = ({ ...rest }: Props) => {
 			`input-comment${rest.id}`
 		) as HTMLDivElement
 		if (textarea) {
-			textarea.style.height = 'auto' // Redefine a altura para o valor automático antes de calcular
-			textarea.style.height = `${textarea.scrollHeight}px` // Define a altura com base no conteúdo
-			inputComment.style.height = 'auto' // Redefine a altura para o valor automático antes de calcular
-			inputComment.style.height = `${inputComment.scrollHeight}px` // Define a altura com base no conteúdo
+			textarea.style.height = 'auto'
+			textarea.style.height = `${textarea.scrollHeight}px`
+			inputComment.style.height = 'auto'
+			inputComment.style.height = `${inputComment.scrollHeight}px`
 		}
 	}, [text])
 
