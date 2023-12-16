@@ -22,11 +22,11 @@ export default () =>
 		{
 			path: '/home',
 			element: (
-				<DefaultLayout>
-					<ScientificJournalsProvider>
+				<ScientificJournalsProvider>
+					<DefaultLayout>
 						<ScientificJournalsList />
-					</ScientificJournalsProvider>
-				</DefaultLayout>
+					</DefaultLayout>
+				</ScientificJournalsProvider>
 			)
 		},
 		{

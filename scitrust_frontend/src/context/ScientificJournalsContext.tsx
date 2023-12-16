@@ -49,10 +49,6 @@ export const ScientificJournalsProvider = ({
 				offset: currentPage,
 				term: term || ''
 			})
-			console.log(
-				'🚀 ~ file: ScientificJournalsContext.tsx:52 ~ handleGetPeriodicalList ~ response:',
-				response
-			)
 			updateParams(Math.ceil(response.data.total / limit), 'total')
 			setCreditsList(response.data)
 			setIsLoading(false)

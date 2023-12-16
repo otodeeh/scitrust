@@ -31,7 +31,22 @@ export class PeriodicalPrismaRepository {
       }
     }
 
-    const where = {}
+    const where = {
+      AND: {
+        OR: [
+          {
+            title: {
+              contains: term,
+            },
+          },
+          {
+            issn: {
+              contains: term,
+            }
+          }
+        ]
+      }
+    }
 
     const [total, periodicals] = await Promise.all([
       Prisma.periodical.count({ where }),
